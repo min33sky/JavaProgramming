@@ -1,4 +1,4 @@
-package ex12;
+package ex12.thread;
 
 public class AutoSaveThread extends Thread {
 	public void save(){

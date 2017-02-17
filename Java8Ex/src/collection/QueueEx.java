@@ -10,11 +10,12 @@ public class QueueEx {
 	public static void main(String[] args) {
 		LinkedList<String> queue = new LinkedList<String>();
 		/*
-		 * melon -> banana -> apple -> 족발
+		 * 족발 <- apple <- banana <- melon <- strawberry
 		 */
 		queue.offer("apple");
 		queue.offer("banana");
 		queue.offer("melon");
+		queue.offer("strawberry");
 		queue.addFirst("족발");
 		System.out.println("제거 : " + queue.removeFirst());
 		
@@ -24,7 +25,7 @@ public class QueueEx {
 		
 		Iterator<String> itr = queue.iterator();
 		while(itr.hasNext()){
-			System.out.println(itr.next());
+			System.out.print(itr.next() + " ");
 		}
 	}
 }

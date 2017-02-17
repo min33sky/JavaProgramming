@@ -1,4 +1,4 @@
-package ex12;
+package ex12.thread;
 
 public class WaitNotifyExample {
 	public static void main(String[] args) {

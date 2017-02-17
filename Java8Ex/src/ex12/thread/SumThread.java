@@ -1,4 +1,4 @@
-package ex12;
+package ex12.thread;
 
 public class SumThread extends Thread {
 	private long sum;
@@ -10,11 +10,11 @@ public class SumThread extends Thread {
 	public void setSum(long sum){
 		this.sum = sum;
 	}
-	
-	public void run(){
+
+	@Override
+	public void run() {
 		for(int i=1; i<=100; i++){
 			sum += i;
 		}
 	}
-
 }

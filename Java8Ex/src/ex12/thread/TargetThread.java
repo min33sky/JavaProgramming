@@ -1,10 +1,10 @@
-package ex12;
+package ex12.thread;
 
 public class TargetThread extends Thread{
 
 	@Override
 	public void run() {
-		for(long i=0; i<100000000; i++){
+		for(long i=0; i<1000000000; i++){
 			
 		}
 		

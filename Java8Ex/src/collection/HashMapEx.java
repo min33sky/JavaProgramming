@@ -20,10 +20,10 @@ public class HashMapEx {
 		System.out.println("꺼낸 데이터 : " + receiveStr);
 		System.out.println("삭제 데이터 : " + deleteStr);
 		
-		
 		System.out.println();
 		System.out.println("KeySet");
 		
+		// KeySet
 		Iterator<String> iterator = hashMap.keySet().iterator();
 		while(iterator.hasNext()){
 			String key = iterator.next();
@@ -32,13 +32,12 @@ public class HashMapEx {
 		
 		System.out.println();
 		System.out.println("EntrySet");
+		// EntrySet
 		Iterator<Entry<String, String>> it = hashMap.entrySet().iterator();
 		while(it.hasNext()){
 			String key = it.next().getKey();
 			String val = hashMap.get(key);
 			System.out.println(key + " : " + val);
-			
 		}
-		
 	}
 }

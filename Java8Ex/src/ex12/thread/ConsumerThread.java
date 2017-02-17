@@ -1,4 +1,4 @@
-package ex12;
+package ex12.thread;
 
 public class ConsumerThread extends Thread {
 	private DataBox dataBox;

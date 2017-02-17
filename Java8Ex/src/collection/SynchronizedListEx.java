@@ -7,7 +7,7 @@ import java.util.List;
 
 import javax.swing.plaf.synth.SynthSpinnerUI;
 
-import ex12.MThreadExample;
+import ex12.thread.MThreadExample;
 
 /*
  * 리스트 연습
@@ -23,7 +23,6 @@ public class SynchronizedListEx {
 		syncList.add("사나");
 		syncList.add("모모");
 		syncList.add("미나");
-		
 		
 		synchronized (syncList) {
 			Iterator<String> itr = syncList.iterator();
@@ -50,7 +49,6 @@ public class SynchronizedListEx {
 	
 	public static void main(String[] args) {
 		Thread t1 = new Thread(new Runnable() {
-			
 			@Override
 			public void run() {
 				System.out.println("ThreadA 시작");
@@ -60,7 +58,6 @@ public class SynchronizedListEx {
 		});
 		
 		Thread t2 = new Thread(new Runnable() {
-			
 			@Override
 			public void run() {
 				System.out.println("ThreadB 시작");
@@ -68,7 +65,6 @@ public class SynchronizedListEx {
 				System.out.println("ThreadB 종료");
 			}
 		});
-		
 		t1.start();
 		t2.start();
 	}

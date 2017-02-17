@@ -1,4 +1,4 @@
-package ex12;
+package ex12.thread;
 // 타켓 스레드의 상태를 출력하는 스레드
 public class StatePrintThread extends Thread{
 	private Thread targetThread;

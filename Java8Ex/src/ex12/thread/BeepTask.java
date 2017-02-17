@@ -1,4 +1,4 @@
-package ex12;
+package ex12.thread;
 
 import java.awt.Toolkit;
 

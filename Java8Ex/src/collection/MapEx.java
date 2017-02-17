@@ -35,18 +35,14 @@ public class MapEx {
 			
 			@Override
 			public void run() {
-				System.out.println("Thread1 시작");
 				hashTableTest();
-				System.out.println("Thread1 종료");
 			}
 		});
 		Thread t2 = new Thread(new Runnable() {
 			
 			@Override
 			public void run() {
-				System.out.println("Thread2 시작");
 				hashTableTest();
-				System.out.println("Thread2 종료");
 			}
 		});
 		

@@ -1,4 +1,4 @@
-package ex12;
+package ex12.thread;
 
 public class User1 extends Thread {
 	private Calculator calculator;

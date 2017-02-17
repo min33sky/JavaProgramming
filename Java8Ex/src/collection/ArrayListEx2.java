@@ -25,21 +25,38 @@ public class ArrayListEx2 {
 		/*
 		 * 내림차 순 정렬
 		 */
-		Comparator<String> comp = new Comparator<String>() {
+		Comparator<String> comp1 = new Comparator<String>() {
 			@Override
 			public int compare(String o1, String o2) {
 				return o2.compareTo(o1);
 			}
 		};
 		
-		Collections.sort(list, comp);
+		Comparator<String> comp2 = new Comparator<String>() {
+			@Override
+			public int compare(String o1, String o2) {
+				return o1.length() - o2.length();
+			}
+		};
 		
-		for(String s : list){
-			System.out.println(s);
-		}
+		System.out.println("이름 내림차순 정렬");
+		Collections.sort(list, comp1);
+		printArray(list);
+		System.out.println("글자수 오름차순 정렬");
+		Collections.sort(list, comp2);
+		printArray(list);
 		
 	}
 	
+	private static void printArray(List<String> list) {
+		for(String s : list){
+			System.out.println(s);
+		}		
+		System.out.println("**********************************");
+	}
+
+
+
 	public static void main(String[] args) {
 		arrayListTest();
 	}
