@@ -10,7 +10,7 @@ import java.io.IOException;
 public class DataInputOutputStreamExample {
 	public static void main(String[] args) throws IOException {
 		
-		FileOutputStream fos = new FileOutputStream("c:/java/primitive.txt");
+		FileOutputStream fos = new FileOutputStream("src/ex18/resource/primitive.txt");
 		DataOutputStream dos = new DataOutputStream(fos);
 		
 		dos.writeUTF("홍길동");
@@ -25,7 +25,7 @@ public class DataInputOutputStreamExample {
 		dos.close();
 		fos.close();
 		
-		FileInputStream fis = new FileInputStream("c:/java/primitive.txt");
+		FileInputStream fis = new FileInputStream("src/ex18/resource/primitive.txt");
 		DataInputStream dis = new DataInputStream(fis);
 		
 		for(int i=0; i<2; i++){

@@ -8,14 +8,11 @@ import java.io.Reader;
 
 public class BufferedReaderExample {
 	public static void main(String[] args) throws IOException {
-		InputStream is = System.in;
-		Reader reader = new InputStreamReader(is);
-		BufferedReader br = new BufferedReader(reader);
+		
+		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		
 		System.out.print("입력: ");
-		String lineString = br.readLine();
-		
-		System.out.println("출력: " + lineString);
-		
+		String text = input.readLine();
+		System.out.println("출력: " + text);
 	}
 }

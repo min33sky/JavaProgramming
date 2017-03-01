@@ -6,8 +6,8 @@ import java.io.IOException;
 
 public class FileWriterExample {
 	public static void main(String[] args) throws IOException {
-		File file = new File("c:/java/bbc4.txt");
-		FileWriter fw = new FileWriter(file);
+		File file = new File("src/ex18/resource/fileWriter.txt");
+		FileWriter fw = new FileWriter(file, true);
 		fw.write("FileWriter는 한글로된 " + "\r\n");
 		fw.write("문자열을 바로 출력할 수 있다." + "\r\n");
 		fw.flush();

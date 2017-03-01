@@ -8,6 +8,7 @@ import org.omg.CORBA.Environment;
 
 // 프로퍼티 파일로부터 읽기
 public class PropertiesExample {
+	
 	public static void main(String[] args) throws Exception {
 		/*
 		 * Class.getResource() : 상대주소
@@ -25,9 +26,5 @@ public class PropertiesExample {
 		
 		System.out.println(driver + " : " + url);
 		System.out.println(username + " : " + password);
-		
-		
-		
-		
 	}
 }

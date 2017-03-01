@@ -6,7 +6,7 @@ import java.io.PrintStream;
 
 public class PrintStreamExample {
 	public static void main(String[] args) throws IOException {
-		FileOutputStream fos = new FileOutputStream("c:/java/file.txt");
+		FileOutputStream fos = new FileOutputStream("src/ex18/resource/printStream.txt");
 		PrintStream ps = new PrintStream(fos);
 		
 		ps.println("[프린터 보조 스트림]");

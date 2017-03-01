@@ -31,9 +31,9 @@ public class BufferedOutputStreamExample {
 		fis.close();
 		System.out.println("사용하지 않았을 때: " + (end-start) + "ms");
 		
-		fis = new FileInputStream("c:/java/irean.jpg");
+		fis = new FileInputStream("src/ex18/resource/test.txt");
 		bis = new BufferedInputStream(fis);
-		fos = new FileOutputStream("c:/java/ireann.jpg");
+		fos = new FileOutputStream("src/ex18/resource/test.txt");
 		bos = new BufferedOutputStream(fos);
 		start = System.currentTimeMillis();
 		while((data = bis.read()) != -1){
