@@ -1,17 +1,20 @@
 package datastructure.tree;
-/*
+/**
  * 이진 탐색 트리 (Binary Search Tree)
+ * @author Heo-MH
+ *
  */
 public class BinaryTree {
 	Node rootNode = null;
 	
-	/*
-	 * 새로운 노드 삽입
+	/**
+	 * 노드 삽입
+	 * @param element
 	 */
 	public void insertNode(int element){
 		/*
 		 * 루트가 빈 경우
-		 * 즉 아무 노드도 없는 경우
+		 * 즉, 아무 노드도 없는 경우에는 루트 노드로 지정한다.
 		 */
 		if(rootNode == null){
 			rootNode = new Node(element);
@@ -19,6 +22,10 @@ public class BinaryTree {
 			Node head = rootNode;
 			Node currentNode;
 			
+			/*
+			 * CurrentNode는 현재 가리키는 Node
+			 * Head는 다음 노드를 가리킨다.
+			 */
 			while(true){
 				currentNode = head;
 				/*
@@ -56,13 +63,56 @@ public class BinaryTree {
 		}
 	}
 	
-	/*
-	 * 특정 노드 삭제
+	/**
+	 * 특정 노드 검색하기
+	 * @param element
+	 * @return
+	 */
+	public boolean search(int element){
+		// 루트 노드가 비었을 경우에는 false
+		if(rootNode == null){
+			return false;
+		}else{
+			Node head = rootNode;
+			Node currentNode = null;
+			
+			while(true){
+				currentNode = head;
+				// 기준이 되는 노드보다 작을 시 왼쪽 서브트리를 검색
+				if(element < head.value){
+					head = currentNode.leftChild;
+					
+					if(head == null){ // 해당 값이 없을 시 false
+						return false;
+					}
+				}else if(element > head.value){
+				// 기준이 되는 노드보다 클 시 오른쪽 서브트리를 검색
+					head = currentNode.rightChild;
+				
+					if(head == null){ 	// 해당 값이 없을 시 false
+						return false;
+					}
+				}else{
+					// 해당 값이 존재하므로 True
+					return true;
+				}
+			}
+		}
+	}
+	
+	/**
+	 * 원하는 노드 삭제
+	 * @param element
+	 * @return
 	 */
 	public boolean removeNode(int element){
-		Node removeNode = rootNode;
-		Node parentOfRemoveNode = null;
+		Node removeNode = rootNode;		// 삭제할 노드
+		Node parentOfRemoveNode = null;	// 삭제할 노드의 부모 노드
 		
+		/*
+		 * 값 대소를 비교하며 탐색했을 때
+		 * 잎 노드(Leaf Node)인 경우 삭제를 위한 탐색
+		 */
 		while(removeNode.value != element){
 			parentOfRemoveNode = removeNode;
 			
@@ -73,15 +123,15 @@ public class BinaryTree {
 				removeNode = removeNode.rightChild;
 			}
 			
-			/*
-			 * 값 대소를 비교하며 탐색했을 때
-			 * 잎 노드(Leaf Node)인 경우 삭제를 위한 탐색
-			 */
+			// 삭제할 노드를 찾지 못한 경우 false
 			if(removeNode == null)
 				return false;
 		}
 		
-		/* 자식 노드가 모두 없을 때 */
+		/* 
+		 * 삭제할 노드의 자식 노드가 모두 없을 때는 
+		 * 부모 노드에서 삭제할 노드를 null 처리한다.
+		 */
 		if(removeNode.leftChild == null && removeNode.rightChild == null) {
 			/* 삭제 대상이 트리의 루트일 때 */
 			if(removeNode == rootNode) {
@@ -93,7 +143,9 @@ public class BinaryTree {
 			}
 		} 
 		
-		/* 오른쪽 자식 노드만 존재하는 경우 */
+		/* 
+		 * 삭제할 노드가 오른쪽 자식 노드만 존재하는 경우 
+		 * */
 		else if(removeNode.leftChild == null) {
 			if(removeNode == rootNode) {
 				rootNode = removeNode.rightChild;
@@ -123,8 +175,8 @@ public class BinaryTree {
 		
 		/* 
 		 * 두 개의 자식 노드가 존재하는 경우
-		 * 삭제할 노드의 왼쪽 서브 트리에 있는 가장 큰 값 노드를 올리거나
-		 * 오른쪽 서브 트리에 있는 가장 작은 값 노드를 올리면 된다.
+		 * 1. 삭제할 노드의 왼쪽 서브 트리에 있는 가장 큰 값 노드를 올리거나
+		 * 2. 오른쪽 서브 트리에 있는 가장 작은 값 노드를 올리면 된다.
 		 * 구현 코드는 2번째 방법을 사용한다.
 		 */
 		else {
@@ -140,8 +192,15 @@ public class BinaryTree {
 				replaceNode = replaceNode.leftChild;
 			}
 
+			/**
+			 * 대체할 노드가 삭제할 노드의 오른쪽 자식노드가 아닐 경우에는
+			 * 대체 노드의 부모노드는 대체 노드의 오른쪽 자식 노드를 가리키고
+			 * 대체 노드의 오른쪽 자식 노드는 제거할 노드의 오른쪽 자식노드를 가리키게 만든다.
+			 */
 			if(replaceNode != removeNode.rightChild) {
-				/* 가장 작은 값을 선택하기 때문에 대체 노드의 왼쪽 자식은 빈 노드가 된다. */
+				/* 
+				 * 가장 작은 값을 선택하기 때문에 대체 노드의 왼쪽 자식은 빈 노드가 된다. 
+				 */
 				parentOfReplaceNode.leftChild = replaceNode.rightChild;
 				
 				/* 대체할 노드의 오른쪽 자식 노드를 삭제할 노드의 오른쪽으로 지정한다. */
@@ -157,7 +216,10 @@ public class BinaryTree {
 				parentOfRemoveNode.leftChild = replaceNode;
 			}
 			
-			/* 삭제 대상 노드의 왼쪽 자식을 잇는다. */
+			/* 
+			 * 대체된 노드의 왼쪽 자식 노드는 
+			 * 삭제 대상 노드의 왼쪽 자식을 가리킨다.
+			 */
 			replaceNode.leftChild = removeNode.leftChild;
 		}
 		
@@ -166,13 +228,18 @@ public class BinaryTree {
 	
 	
 	
-	/*
-	 * 전위 순회
+	/**
+	 * Pre Order Traverse
+	 * 트리 모양을 그대로 전송하고 싶을 때 사용한다.
+	 * 예) 바이트스트림으로 다른 서버로 전송하면 
+	 *     다른 서버에서 동일한 트리를 만들 수 있다.
+	 * @param root
+	 * @param depth
 	 */
 	public void preorderTree(Node root, int depth){
 		if(root != null){
 			for(int i=0; i<depth; i++)
-				System.out.print("ㄴ");
+				System.out.print("--");
 			System.out.println(root.value);
 			preorderTree(root.leftChild, depth+1);
 			preorderTree(root.rightChild, depth+1);
@@ -180,26 +247,29 @@ public class BinaryTree {
 	}
 	
 	/*
-	 * 후위 순회
+	 * Post Order Traverse
 	 */
 	public void postorderTree(Node root, int depth){
 		if(root != null){
 			postorderTree(root.leftChild, depth+1);
 			postorderTree(root.rightChild, depth+1);
 			for(int i=0; i<depth; i++)
-				System.out.print("ㄴ");
+				System.out.print("--");
 			System.out.println(root.value);
 		}
 	}
 	
-	/*
-	 * 중위 순회
+	/**
+	 * In Order Traverse
+	 * 가장 작은 값부터 정렬이 된다.
+	 * @param root
+	 * @param depth
 	 */
 	public void inorderTree(Node root, int depth){
 		if(root != null){
 			inorderTree(root.leftChild, depth+1);
 			for(int i=0; i<depth; i++)
-				System.out.print("ㄴ");
+				System.out.print("--");
 			System.out.println(root.value);
 			inorderTree(root.rightChild, depth+1);
 		}

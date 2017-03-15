@@ -1,6 +1,8 @@
 package datastructure.tree;
-/*
- * 노드 클래스
+/**
+ * Node Class
+ * @author Heo-MH
+ *
  */
 public class Node {
 	int value;
@@ -9,6 +11,7 @@ public class Node {
 
 	public Node(int value){
 		this.value = value;
-		this.leftChild = this.rightChild = null;
+		this.leftChild = null;
+		this.rightChild = null;
 	}
 }

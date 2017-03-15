@@ -8,6 +8,8 @@ public class ConstantTest {
 
 		Fruit type = Fruit.APPLE;
 
+		System.out.println("=========================");
+		
 		switch (type) {
 			case APPLE:
 				System.out.println("사과 색깔은 " + Fruit.APPLE.getColor());
