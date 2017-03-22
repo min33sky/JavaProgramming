@@ -1,5 +1,7 @@
 package algo.sorting;
 
+import java.util.Arrays;
+
 /*
  ********************* 힙 정렬 ****************************************************************** 
  * 힙이란 우선순위큐를 표현한 완전이진트리의 배열식 표현을 의미한다.
@@ -17,12 +19,12 @@ public class HeapSorting {
 //		int[] array = new int[7] ;
 //		for (int i=0; i<array.length; i++) 
 //			array[i] = ((int)(Math.random() * 25) ) +1;
-		int[] array = {5,3,4,1,2,0,6};
-		printArray(array);
+		int[] array = {2,8,6,1,10,15,3,12,11};
+		System.out.println(Arrays.toString(array));
 		System.out.println("============================");
 		heapSort(array);
 		System.out.println("============================ 최종 결과");
-		printArray(array);
+		System.out.println(Arrays.toString(array));
 	}
 
 	public static void heapSort(int[] arr) {
@@ -49,6 +51,7 @@ public class HeapSorting {
 	private static void downHeap(int arr[], int start, int length){
 		int temp = arr[start-1];
 		while (start <= length/2){	// 자식의 존재 여부 판별
+//			System.out.println("부모 : " + (start-1));
 			// 오른쪽 자식->왼쪽자식->루트순으로 비교
 			int child = 2 * start; 
 			// 왼쪽, 오른쪽 자식을 비교해서 더 큰 값을 가지는 자식을
@@ -64,13 +67,7 @@ public class HeapSorting {
 		}
 		// 자식이 크면 start-1은 자식 위치 아니면 start-1은 부모 위치 그대로
 		arr[start-1] = temp;
-		printArray(arr);
-	}
-
-	static void printArray(int[] array) {
-		for (int i=0; i<array.length; i++)
-			System.out.print(array[i] + " ");
-		System.out.println();
+		System.out.println(Arrays.toString(arr));
 	}
 
 }

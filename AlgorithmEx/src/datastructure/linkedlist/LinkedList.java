@@ -1,4 +1,4 @@
-package datastrucure.linkedlist;
+package datastructure.linkedlist;
 /*
  * LinkedList
  */

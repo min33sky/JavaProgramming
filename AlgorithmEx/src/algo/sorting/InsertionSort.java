@@ -35,7 +35,7 @@ public class InsertionSort {
 			}
 		}
 		print(array);
-		System.out.println("정렬");
+		System.out.println("\n정렬");
 		sort1(array);
 	}
 

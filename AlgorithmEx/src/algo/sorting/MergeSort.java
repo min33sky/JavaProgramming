@@ -41,7 +41,7 @@ public class MergeSort {
 		int rightStart = mid+1;
 		int rightEnd = right;
 		
-		// 합병 결과를 담을 배열 생성
+		// 합병 결과를 담을 배열 생성 - 추가 메모리 공간 사용
 		int[] sortedArr = new int[arr.length];
 		int index = left;
 		

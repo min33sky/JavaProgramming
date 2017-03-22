@@ -18,7 +18,6 @@ public class Permutation {
 	 * @param arr
 	 * @param depth
 	 */
-
 	public static void perm(int[] arr, int depth) {
 		
 		// 제일 깊은 depth를 출력한다.
@@ -27,14 +26,14 @@ public class Permutation {
 			return;
 		}
 
-		// depth가 0일 때, i는 0, 1, 2, 3
-		// 즉, arr[0]이 [0], [1], [2], [3]으로 각각 swap된다.
+		// depth가 0일 때, i는 0, 1, 2
+		// 즉, arr[0]이 [0], [1], [2] 으로 각각 swap된다.
 		for (int i = depth; i < arr.length; i++) {
-			swap(arr, i, depth);
+			swap(arr, depth, i);
 			// 다음 depth로 진입한다.
 			perm(arr, depth + 1);
 			// 현재 depth - 현재 loop의 다음 iteration을 위해 바꾼 것을 되돌린다.
-			swap(arr, i, depth);
+			swap(arr, depth, i);
 		}
 
 	}
