@@ -32,27 +32,36 @@ public class HeapSorting_New {
 	private static void heapSort(int[] arr) {
 		
 		System.out.println("maxHeap 만들기");
-		// maxHeap을 만든다.
+		/*
+		 * 배열의 절반이하 인덱스까지는 자식 Node가 있다.
+		 */
 		for(int i=(arr.length/2)-1; i>=0; i--){
 			maxHeap(arr, i, arr.length);
 		}
 		// 정렬
 		
-		// 최대값과 마지막값을 Swap
-		// 마지막 값은 정렬에서 제외한다.
+		/*
+		 * 최대값(루트 노드)과 마지막 인덱스를 교환한다.
+		 * 마지막값은 정렬이 된 상태이므로 정렬에서 제외한다.
+		 */
 		int length = arr.length;
 		System.out.println("정렬");
 		while(length > 1){
+			// Swap
 			int temp = arr[0];
 			arr[0] = arr[length-1];
 			arr[length-1] = temp;
-			length--;	// 마지막 값은 다음 정렬에서 제외시킨다.
-			maxHeap(arr, 0, length);	// 힙 형태를 재 구성한다.
+			
+			// 마지막 값은 다음 정렬에서 제외시킨다.
+			length--;	
+			
+			// 힙 형태를 재 구성한다.
+			maxHeap(arr, 0, length);	
 		}
 	}
 
 	/**
-	 * 부모가 자식보다 항상 크다
+	 * 부모가 자식보다 항상 큰 Heap 형태
 	 * @param arr
 	 */
 	private static void maxHeap(int[] arr, int index, int length) {
@@ -60,15 +69,19 @@ public class HeapSorting_New {
 		
 		while(parent < length/2){		// 자식의 유무 판단
 			int child = (parent*2)+1;	// 좌측 자식 노드
-			// 우측 자식노드가 존재한고 우측 자식 노드가 크다면 우측 자식 노드를 가리킨다.
+			
+			/*
+			 *  우측 자식노드가 존재하고 우측 자식 노드가 좌측 자식 노드보다 크다면 
+			 *  우측 자식 노드를 가리킨다.
+			 */
 			if((child+1 < length) && (arr[child] < arr[child+1]))
 				child++;
 
-			// 부모노드가 크다면 힙 형태이므로 반복문 종료
+			// 부모노드가 자식노드보다 크다면 힙 형태이므로 반복문 종료
 			if(arr[parent] >= arr[child]) 
 				break;
 			
-			// 자식이 크다면 교환
+			// 자식노드가 크다면 교환
 			int temp = arr[parent];
 			arr[parent] = arr[child];
 			arr[child] = temp;
@@ -76,6 +89,7 @@ public class HeapSorting_New {
 			// 부모 노드 재설정
 			parent = child;
 		}
+		
 		System.out.println(Arrays.toString(arr));
 	}
 }

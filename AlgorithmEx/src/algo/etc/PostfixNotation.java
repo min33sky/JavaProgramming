@@ -11,8 +11,8 @@ public class PostfixNotation {
 	public static void main(String[] args) {
 		String expression1 = "2+3*4+2"; // 234*+2+
 		String expression2 = "(3+2)*(3+2*4)-1"; // 32+324*+*1-
-		System.out.println(postfix1(expression1));
-		System.out.println(postfix2(expression2));
+		System.out.println("2+3*4+2   =>   " + postfix1(expression1));
+		System.out.println("(3+2)*(3+2*4)-1   =>   " + postfix2(expression2));
 	}
 	
 	/**

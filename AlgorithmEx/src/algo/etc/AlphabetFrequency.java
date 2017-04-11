@@ -24,7 +24,7 @@ public class AlphabetFrequency {
 			char c = input.charAt(i);
 
 			/* 배열의 인덱스와 아스키코드를 매핑하여 빈도수를 저장한다. */
-			alphabet[c - 65]++;	// char - int -> char가 int로 형변환
+			alphabet[c - 65]++;	// char - int -> char가 int로 형변환. ex) A -> 65 - 65 = 0
 		}
 
 		/* 

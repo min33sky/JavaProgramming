@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public class QuickSort_new {
 	public static void main(String[] args) {
-		int[] arr = {31, 8, 48, 73, 11, 3, 20, 29, 65, 15};
+		int[] arr = {5, 2, 4, 33, 7, 1, 12, 9, 3};
 		System.out.println("원본 : " + Arrays.toString(arr));
 		quickSort(arr, 0, arr.length-1);
 		System.out.println("정렬 : " + Arrays.toString(arr));
@@ -45,9 +45,9 @@ public class QuickSort_new {
 		int wall = start;
 		
 		/*
-		 * left가 pivot전 까지 값을 비교한다.
-		 * left가 pivot보다 크다면  left를 증가시킨다.
-		 * 그렇지 않다면 left와 wall을 swap한 후 wall을 증가시킨다.
+		 * left가 pivot전까지 값을 비교한다.
+		 * left는 계속 증가한다.
+		 * left가 pivot보다 작다면 left와 wall을 swap한 후 wall을 증가시킨다.
 		 */
 		while(left < pivot){
 			if(arr[left] < arr[pivot]){
@@ -60,7 +60,8 @@ public class QuickSort_new {
 		// 피봇과 벽의 값을 교환한 후 피봇을 벽으로 재설정한다.
 		swap(arr, wall, pivot);
 		pivot = wall;
-
+		System.out.println("Pivot Index : " + pivot);
+		System.out.println("Pivot Value : " + arr[pivot]);
 		return pivot;
 	}
 	

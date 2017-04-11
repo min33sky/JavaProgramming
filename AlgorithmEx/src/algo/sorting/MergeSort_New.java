@@ -63,6 +63,7 @@ public class MergeSort_New {
 		while(rightStart <= right){
 			temp[tempStart++] = arr[rightStart++];
 		}
+		
 		// 정렬된 배열의 값들을 원본 배열로 옮긴다.
 		for(int i=left; i<=right; i++){
 			arr[i] = temp[i];

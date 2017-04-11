@@ -25,6 +25,9 @@ public class Fibonacci {
 		}
 		end = System.nanoTime();
 		System.out.println("\n소요 시간 : " + (end - start) + "ns");
+		
+		System.out.println();
+		System.out.println(bottomUpFibo(10));
 	}
 
 	/**
@@ -45,6 +48,23 @@ public class Fibonacci {
 			}
 			return arr[i];				// 결과값을 행렬에 저장
 		}
+		
+	}
+	
+	/**
+	 * BottomUp 방식으로 풀기 
+	 * - Recursion 방식이 아니므로 오버헤드가 발생하지 않는다.
+	 * @param num
+	 * @return
+	 */
+	private static int bottomUpFibo(int num){
+		int[] arr = new int[num+1];
+		arr[1] = 1; 
+		arr[2] = 1;
+		for(int idx = 3; idx <= num; idx++){
+			arr[idx] = arr[idx-1] + arr[idx-2];
+		}
+		return arr[num];
 	}
 
 	private static int fibo(int i) {

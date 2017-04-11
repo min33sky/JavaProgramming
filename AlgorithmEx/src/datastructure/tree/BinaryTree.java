@@ -246,8 +246,11 @@ public class BinaryTree {
 		}
 	}
 	
-	/*
+	/**
 	 * Post Order Traverse
+	 * 표현식 트리에서 후위 순회를 하면 후위표기식이 나온다.
+	 * @param root
+	 * @param depth
 	 */
 	public void postorderTree(Node root, int depth){
 		if(root != null){
