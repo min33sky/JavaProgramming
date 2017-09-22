@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<food>
+	<item>
+		<type>vegetable</type>
+		<name>양파</name>
+		<locality>무안</locality>
+		<productname>황토 양파</productname>
+	</item>
+	<item>
+		<type>fruit</type>
+		<name>딸기</name>
+		<locality>논산</locality>
+		<productname>유기농 딸기</productname>
+	</item>
+	<item>
+		<type>meat</type>	
+		<name>소고기</name>
+		<locality>횡성</locality>
+		<productname>명품 한우</productname>
+	</item>
+</food>
